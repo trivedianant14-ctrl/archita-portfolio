@@ -58,9 +58,9 @@
 
     <figure class="hero__frame reveal">
       <div class="hero__arch">
-        <img src="assets/hero-portrait.jpeg" alt="Archita in a green mekhela sador on a village road in Assam">
+        <img src="assets/hero-sari-purple.jpeg" alt="Archita in a purple silk saree outside a village home in Bodoland, Assam">
       </div>
-      <figcaption>On a village road in Bodoland, Assam</figcaption>
+      <figcaption>Home again, in Bodoland, Assam</figcaption>
     </figure>
   </div>
 
@@ -323,7 +323,12 @@
     <p class="reel__hint">Auto-playing reel · click the frame to view full-size</p>
   </div>
 
-  <div class="gallery__grid" id="galleryGrid" hidden></div>
+  <div class="filmstrip" id="filmstrip" hidden>
+    <button class="filmstrip__nav filmstrip__nav--prev" id="stripPrev" aria-label="Scroll left">‹</button>
+    <div class="gallery__grid" id="galleryGrid"></div>
+    <button class="filmstrip__nav filmstrip__nav--next" id="stripNext" aria-label="Scroll right">›</button>
+  </div>
+  <p class="filmstrip__count" id="filmstripCount" hidden></p>
 </section>
 
 <!-- ======= CONTACT ======= -->

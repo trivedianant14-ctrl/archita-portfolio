@@ -19,6 +19,25 @@ const GALLERY = [
   { src: "assets/craft-shirt-white.jpeg",      cat: "craft",  cap: "Hand-embroidered shirt — one of 9+ new products" },
   { src: "assets/craft-shirt-teal.jpeg",       cat: "craft",  cap: "A guitar stitched on a pocket, artisan's choice" },
   { src: "assets/dhuniya-logo.jpeg",           cat: "craft",  cap: "Dhuniya Crafts — the brand we built together" },
+  { src: "assets/craft-keychains-rod.jpeg",    cat: "craft",  cap: "A row of elephants ready to leave the workshop" },
+  { src: "assets/craft-tote-green.jpeg",       cat: "craft",  cap: "Patchwork silk tote — spiral hand-stitching in progress" },
+  { src: "assets/craft-keychain-cashbook.jpeg",cat: "craft",  cap: "Fresh off the needle, tagged for Dhuniya Crafts" },
+  { src: "assets/craft-elephants-hoop.jpeg",   cat: "craft",  cap: "Four little elephants sharing one hoop" },
+  { src: "assets/craft-tote-spiral.jpeg",      cat: "craft",  cap: "Sari-silk tote bag — every square a different weave" },
+  { src: "assets/craft-tote-red.jpeg",         cat: "craft",  cap: "Patchwork tote in Dhuniya red" },
+  { src: "assets/craft-elephant-purple-door.jpeg", cat: "craft", cap: "Purple and proud" },
+  { src: "assets/craft-elephant-teal-heart.jpeg",  cat: "craft", cap: "A heart stitched into every batch" },
+  { src: "assets/craft-elephant-teal-sunburst.jpeg", cat: "craft", cap: "Sunburst embroidery, teal edition" },
+  { src: "assets/craft-keychains-lineup.jpeg", cat: "craft",  cap: "The keychain family, lined up for inspection" },
+  { src: "assets/craft-elephant-denim.jpeg",   cat: "craft",  cap: "Upcycled denim, new life as an elephant" },
+  { src: "assets/craft-elephant-family-grass.jpeg", cat: "craft", cap: "The full herd, out for a photoshoot" },
+  { src: "assets/craft-elephant-pink-fence.jpeg",   cat: "craft", cap: "Pink and patterned, drying in the sun" },
+  { src: "assets/craft-elephant-purple-indoor.jpeg", cat: "craft", cap: "Stitched at home, artisan just out of frame" },
+  { src: "assets/craft-elephant-green-closeup.jpeg", cat: "craft", cap: "Green with pink sunburst detailing" },
+  { src: "assets/craft-craftmark-cert.jpeg",   cat: "craft",  cap: "Craftmark certified — official recognition for Bodo weaving" },
+  { src: "assets/craft-elephant-collage.jpeg", cat: "craft",  cap: "Before and after — an elephant takes shape" },
+  { src: "assets/craft-embroidery-progress.jpeg", cat: "craft", cap: "Hands mid-stitch, flowers blooming on cloth" },
+  { src: "assets/craft-earrings.jpeg",         cat: "craft",  cap: "Crochet earrings — the newest product line" },
   // field
   { src: "assets/work-women-group-film.jpeg",  cat: "field",  cap: "Artisan circle being filmed for Dhuniya's story, Assam" },
   { src: "assets/work-painting-workshop.jpeg", cat: "field",  cap: "Product design workshop with village youth" },
@@ -35,6 +54,15 @@ const GALLERY = [
   { src: "assets/work-sanitation-1.jpeg",      cat: "field",  cap: "Sanitation infrastructure visit with the village team" },
   { src: "assets/work-water-unit.jpeg",        cat: "field",  cap: "Checking the community water unit" },
   { src: "assets/about-flute-village.jpeg",    cat: "field",  cap: "Flute lessons from the village's toughest critics" },
+  { src: "assets/field-shipping-box.jpeg",     cat: "field",  cap: "Packed and ready — a box of orders headed out by courier" },
+  { src: "assets/field-vdc-porch.jpeg",        cat: "field",  cap: "Village Development Committee meeting, Maheshwar" },
+  { src: "assets/field-vdc-women-doors.jpeg",  cat: "field",  cap: "A meeting that finally had women in the room" },
+  { src: "assets/field-vdc-tree-crowd.jpeg",   cat: "field",  cap: "Under the neem tree — the whole village turns up" },
+  { src: "assets/field-vdc-circle-kids.jpeg",  cat: "field",  cap: "Meetings happen with children underfoot, and that's fine" },
+  { src: "assets/field-vdc-porch-meal.jpeg",   cat: "field",  cap: "Sharing a meal after the meeting" },
+  { src: "assets/field-vdc-hall-women.jpeg",   cat: "field",  cap: "A hall full of women, finally part of the conversation" },
+  { src: "assets/field-artisans-group.jpeg",   cat: "field",  cap: "The next generation of Khetha Khuri artisans" },
+  { src: "assets/field-planning-session.jpeg", cat: "field",  cap: "Strategy session — whiteboard, thread, and tea" },
   // moments
   { src: "assets/about-assam-saree.jpeg",      cat: "moment", cap: "In Assamese silk, at home in the village" },
   { src: "assets/about-flute-portrait.jpeg",   cat: "moment", cap: "With the bamboo flute and an Assamese stole" },
@@ -46,6 +74,8 @@ const GALLERY = [
   { src: "assets/moment-shokhuvi-station.jpeg",cat: "moment", cap: "Shokhuvi station, Nagaland — the long way to work" },
   { src: "assets/moment-milestone.jpeg",       cat: "moment", cap: "Kilometre zero — every journey starts somewhere" },
   { src: "assets/moment-hills.jpeg",           cat: "moment", cap: "Watching the clouds roll over the hills" },
+  { src: "assets/moment-bench-sari.jpeg",      cat: "moment", cap: "A quiet minute at a thatched-roof bench" },
+  { src: "assets/moment-clay-stove.jpeg",      cat: "moment", cap: "Dinner cooked on a clay stove — a memory that stayed with me" },
   // videos
   { src: "assets/video-craft-1.mp4", cat: "video", type: "video", cap: "Inside the craft centre — stitching in progress" },
   { src: "assets/video-craft-2.mp4", cat: "video", type: "video", cap: "The making of a Dhuniya elephant" },
@@ -162,6 +192,8 @@ document.addEventListener("visibilitychange", () => {
 showSlide(0);
 
 // ---------- filters ----------
+const filmstrip = document.getElementById("filmstrip");
+const filmstripCount = document.getElementById("filmstripCount");
 const chips = document.querySelectorAll(".chip");
 chips.forEach(chip => chip.addEventListener("click", () => {
   chips.forEach(c => c.classList.remove("is-active"));
@@ -169,17 +201,29 @@ chips.forEach(chip => chip.addEventListener("click", () => {
   const f = chip.dataset.filter;
   if (f === "reel") {
     reel.hidden = false;
-    grid.hidden = true;
+    filmstrip.hidden = true;
+    filmstripCount.hidden = true;
     startReel();
   } else {
     reel.hidden = true;
     stopReel();
-    grid.hidden = false;
+    filmstrip.hidden = false;
+    filmstripCount.hidden = false;
+    let count = 0;
     document.querySelectorAll(".tile").forEach(t => {
-      t.classList.toggle("is-hidden", t.dataset.cat !== f);
+      const show = t.dataset.cat === f;
+      t.classList.toggle("is-hidden", !show);
+      if (show) count++;
     });
+    grid.style.scrollBehavior = "auto";
+    grid.scrollLeft = 0;
+    grid.style.scrollBehavior = "";
+    filmstripCount.textContent = count + (count === 1 ? " photo" : " photos") + " — drag or scroll to browse";
   }
 }));
+
+document.getElementById("stripPrev").addEventListener("click", () => grid.scrollBy({ left: -560, behavior: "smooth" }));
+document.getElementById("stripNext").addEventListener("click", () => grid.scrollBy({ left: 560, behavior: "smooth" }));
 
 // ---------- lightbox ----------
 const lightbox = document.getElementById("lightbox");
